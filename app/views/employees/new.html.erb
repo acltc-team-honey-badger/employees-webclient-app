@@ -1,0 +1,25 @@
+<h1>Create Employee</h1>
+
+<%= form_tag "/employees" do %>
+  <div>
+    <%= label_tag :first_name %>
+    <%= text_field_tag :first_name %>
+  </div>
+  <div>
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name %>
+  </div>
+  <div>
+    <%= label_tag :birthdate %>
+    <%= text_field_tag :birthdate %>
+  </div>
+  <div>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </div>
+  <div>
+    <%= label_tag :ssn %>
+    <%= text_field_tag :ssn %>
+  </div>
+    <%= submit_tag "Create Employee" %>
+<% end %>

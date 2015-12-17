@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>Full Name</th>
+    <th>Email</th>
+    <th>SSN</th>
+  </tr>
+  <% @employees.each do |employee| %>
+    <tr>
+      <td><%= employee.full_name %></td>
+      <td><%= employee.email %></td>
+      <td><%= employee.ssn %></td>
+    </tr>
+  <% end %>
+
+</table>
