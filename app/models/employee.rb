@@ -18,7 +18,7 @@ class Employee
 
   def self.all
     employees = []
-    employee_hashes = Unirest.get("http://localhost:3000/api/v1/employees.json").body
+    employee_hashes = Unirest.get("#{ENV['API_BASE_URL']}/employees.json").body
     employee_hashes.each do |employee_hash|
       employees << Employee.new(employee_hash)
     end
@@ -26,22 +26,22 @@ class Employee
   end
 
   def self.find(id)
-    employee_hash = Unirest.get("http://localhost:3000/api/v1/employees/#{id}.json").body
+    employee_hash = Unirest.get("#{ENV['API_BASE_URL']}/employees/#{id}.json").body
     Employee.new(employee_hash)
   end
 
   def self.create(attributes)
-    employee_hash = Unirest.post("http://localhost:3000/api/v1/employees.json", headers: {"Accept" => "application/json"}, parameters: attributes).body
+    employee_hash = Unirest.post("#{ENV['API_BASE_URL']}/employees.json", headers: {"Accept" => "application/json"}, parameters: attributes).body
     Employee.new(employee_hash)
   end
 
   def update(attributes)
-    employee_hash = Unirest.patch("http://localhost:3000/api/v1/employees/#{id}.json", headers: {"Accept" => "application/json"}, parameters: attributes).body
+    employee_hash = Unirest.patch("#{ENV['API_BASE_URL']}/employees/#{id}.json", headers: {"Accept" => "application/json"}, parameters: attributes).body
     Employee.new(employee_hash)
   end
 
   def destroy
-    Unirest.delete("http://localhost:3000/api/v1/employees/#{id}.json").body
+    Unirest.delete("#{ENV['API_BASE_URL']}/employees/#{id}.json").body
   end
 
 end
